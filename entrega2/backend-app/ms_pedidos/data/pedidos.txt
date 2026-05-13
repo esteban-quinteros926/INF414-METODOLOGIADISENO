@@ -1,0 +1,1 @@
+{"id_pedido": "LOG-444", "destino": "asd", "peso": 4.0, "estado": "Entregado", "repartidor_asignado": "R1"}
