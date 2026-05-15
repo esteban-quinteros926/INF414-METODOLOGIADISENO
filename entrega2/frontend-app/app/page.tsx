@@ -6,7 +6,7 @@ export default function Home() {
     <div className="min-h-[80vh] flex flex-col items-center justify-center animate-fade-in px-4">
       <div className="text-center mb-12">
         <h1 className="text-5xl font-black text-slate-900 mb-4 tracking-tight">
-          Bienvenido a <span className="text-blue-600">UV Protect Logistics</span>
+          Bienvenido a <span className="text-blue-600">UV Protect</span>
         </h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">
           Sistema centralizado de logística de última milla. Por favor seleccione su perfil de acceso para continuar.

@@ -25,7 +25,6 @@ export default function RootLayout({
             <Link href="/administrador" className="hover:text-blue-300 transition-colors">Administrador</Link>
             <Link href="/operador" className="hover:text-blue-300 transition-colors">Operador</Link>
             <Link href="/repartidor" className="hover:text-blue-300 transition-colors">Repartidor</Link>
-            <Link href="/integraciones" className="hover:text-blue-300 transition-colors">Integraciones</Link>
           </div>
         </nav>
         <main className="container mx-auto p-4">
