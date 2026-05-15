@@ -1,4 +1,4 @@
-# UV Protect Logistics - Guía de Ejecución
+# UV Protect - Guía de Ejecución
 
 Este proyecto consiste en un sistema de logística de última milla desarrollado con una arquitectura de microservicios en el backend (FastAPI/Python) y una interfaz de usuario moderna en el frontend (Next.js/React).
 
