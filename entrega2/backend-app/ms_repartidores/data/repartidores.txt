@@ -1,2 +1,1 @@
-{"id_rep": "R1", "nombre": "Benjam\u00edn Acevedo Jorquera", "capacidad": 200.0, "carga_actual": 163.0, "disponible": true, "ubicacion": "Base Central"}
 {"id_rep": "R3", "nombre": "Renato Herrera", "capacidad": 20.0, "carga_actual": 0.0, "disponible": true, "ubicacion": "Base Central"}

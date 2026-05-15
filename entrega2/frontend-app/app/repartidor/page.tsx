@@ -45,6 +45,15 @@ export default function RepartidorPage() {
     }
   };
 
+  const entregarPedido = async (id_pedido: string) => {
+    try {
+      await fetch(`/api/despachos/entregar/${id_pedido}`, { method: "POST" });
+      fetchPedidos();
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const reportarIncidencia = async (id_pedido: string) => {
     const problema = prompt("Describa el problema:");
     if (problema) {
@@ -110,7 +119,7 @@ export default function RepartidorPage() {
                 )}
                 {p.estado === 'En ruta' && (
                   <>
-                    <button onClick={() => cambiarEstado(p.id_pedido, 'Entregado')} className="bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600">Entregado</button>
+                    <button onClick={() => entregarPedido(p.id_pedido)} className="bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600">Entregado</button>
                     <button onClick={() => reportarIncidencia(p.id_pedido)} className="bg-red-500 text-white py-2 rounded-lg font-semibold hover:bg-red-600">Reportar</button>
                   </>
                 )}

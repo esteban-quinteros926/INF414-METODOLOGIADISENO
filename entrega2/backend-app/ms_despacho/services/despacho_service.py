@@ -48,3 +48,20 @@ class DespachoFacade:
                 await asyncio.gather(put_carga, put_estado)
                 
         return await self.asignar_automaticamente(id_pedido)
+
+    async def entregar_pedido(self, id_pedido: str) -> dict:
+        async with httpx.AsyncClient() as client:
+            resp_pedido = await client.get(f"{self.url_pedidos}/{id_pedido}")
+            if resp_pedido.status_code != 200:
+                raise ValueError("Pedido no encontrado")
+            pedido = resp_pedido.json()
+
+            if not pedido.get("repartidor_asignado"):
+                raise ValueError("El pedido no tiene un repartidor asignado")
+
+            # Liberar carga y actualizar estado a Entregado concurrentemente
+            put_carga = client.put(f"{self.url_repartidores}/{pedido['repartidor_asignado']}/carga", json={"peso": -pedido["peso"]})
+            put_estado = client.put(f"{self.url_pedidos}/{id_pedido}/estado", json={"nuevo_estado": "Entregado"})
+            await asyncio.gather(put_carga, put_estado)
+            
+            return {"status": "Entregado", "repartidor": pedido["repartidor_asignado"]}

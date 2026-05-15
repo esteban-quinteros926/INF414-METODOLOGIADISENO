@@ -1,1 +1,2 @@
 {"id_pedido": "LOG-444", "destino": "asd", "peso": 4.0, "estado": "Entregado", "repartidor_asignado": "R1"}
+{"id_pedido": "LOG-INF-414", "destino": "asd", "peso": 15.0, "estado": "Entregado", "repartidor_asignado": "R3"}

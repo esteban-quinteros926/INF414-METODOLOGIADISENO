@@ -17,3 +17,10 @@ async def reasignar_pedido(id_pedido: str):
         return await facade.reasignar_pedido(id_pedido)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@router.post("/entregar/{id_pedido}")
+async def entregar_pedido(id_pedido: str):
+    try:
+        return await facade.entregar_pedido(id_pedido)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
