@@ -115,6 +115,6 @@ class GestorRepartidores(metaclass=SingletonMeta):
             raise ValueError("Repartidor no encontrado")
         if rep.carga_actual + peso > rep.capacidad:
             raise ValueError("Excede la capacidad del repartidor")
-        rep.carga_actual += peso
+        rep.carga_actual = max(0.0, rep.carga_actual + peso)
         self.repo.save(rep)
         return rep

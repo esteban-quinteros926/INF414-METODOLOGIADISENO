@@ -34,9 +34,10 @@ export default function OperadorPage() {
   });
 
   const fetchData = () => {
-    fetch("/api/pedidos").then((res) => res.json()).then((data) => setPedidos(Array.isArray(data) ? data : []));
-    fetch("/api/incidencias").then((res) => res.json()).then((data) => setIncidencias(Array.isArray(data) ? data : []));
+    fetch(`/api/pedidos?t=${Date.now()}`).then((res) => res.json()).then((data) => setPedidos(Array.isArray(data) ? data : []));
+    fetch(`/api/incidencias?t=${Date.now()}`).then((res) => res.json()).then((data) => setIncidencias(Array.isArray(data) ? data : []));
   };
+
 
   useEffect(() => {
     fetchData();

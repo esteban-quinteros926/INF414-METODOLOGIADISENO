@@ -1,0 +1,2 @@
+{"id_incidencia": "INC-3748", "id_pedido": "LOG-1", "problema": "asd", "estado": "Resuelta", "resolucion": "pk"}
+{"id_incidencia": "INC-8490", "id_pedido": "LOG-2", "problema": "a", "estado": "Resuelta", "resolucion": "asd"}

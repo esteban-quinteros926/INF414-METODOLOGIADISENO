@@ -6,7 +6,7 @@ export async function PUT(
 ) {
   try {
     const body = await request.json();
-    const res = await fetch(`http://localhost:8004/incidencias/${params.id}/resolver`, {
+    const res = await fetch(`http://127.0.0.1:8004/incidencias/${params.id}/resolver`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -17,3 +17,4 @@ export async function PUT(
     return NextResponse.json({ error: "Error conectando al MS de Incidencias" }, { status: 500 });
   }
 }
+

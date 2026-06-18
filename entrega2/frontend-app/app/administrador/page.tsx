@@ -28,16 +28,17 @@ export default function AdministradorPage() {
   });
 
   const fetchData = () => {
-    fetch("/api/pedidos")
+    fetch(`/api/pedidos?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => setPedidos(Array.isArray(data) ? data : []))
       .catch(console.error);
 
-    fetch("/api/repartidores")
+    fetch(`/api/repartidores?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => setRepartidores(Array.isArray(data) ? data : []))
       .catch(console.error);
   };
+
 
   useEffect(() => {
     fetchData();

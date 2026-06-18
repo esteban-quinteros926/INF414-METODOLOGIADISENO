@@ -5,7 +5,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const res = await fetch(`http://localhost:8003/despachos/asignar-automatico/${params.id}`, {
+    const res = await fetch(`http://127.0.0.1:8003/despachos/asignar-automatico/${params.id}`, {
       method: "POST",
     });
     const data = await res.json();
@@ -14,3 +14,4 @@ export async function POST(
     return NextResponse.json({ error: "Error conectando al MS de Despachos" }, { status: 500 });
   }
 }
+

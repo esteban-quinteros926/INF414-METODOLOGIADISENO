@@ -220,6 +220,17 @@ class PedidoService:
 
         # 4. Save via Repository
         self.repo.save(pedido_logistico)
+        
+        # 5. Publicar evento a la Cola (Saga Pattern - Paso 1)
+        import httpx
+        try:
+            httpx.post("http://127.0.0.1:8005/queues/asignacion_pedidos", json={
+                "payload": {"id_pedido": pedido_logistico.id_pedido}
+            })
+            print(f"[Event Bus] Publicado PedidoCreado en cola 'asignacion_pedidos' para {pedido_logistico.id_pedido}")
+        except Exception as e:
+            print(f"[Event Bus] Error publicando a ms_broker: {e}")
+            
         return pedido_logistico
 
     def obtener_todos(self):
@@ -236,7 +247,9 @@ class PedidoService:
         if not pedido:
             raise ValueError("Pedido no encontrado")
         
-        if repartidor_id:
+        if nuevo_estado in ["Creado", "Validado", "Pendiente de asignación", "Cancelado"]:
+            pedido.repartidor_asignado = None
+        elif repartidor_id:
             pedido.repartidor_asignado = repartidor_id
             
         pedido.transicionar_estado(nuevo_estado)

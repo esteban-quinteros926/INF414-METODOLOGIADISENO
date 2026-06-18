@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request, { params }: { params: { id: string } }) {
   try {
-    const res = await fetch(`http://localhost:8003/despachos/entregar/${params.id}`, {
+    const res = await fetch(`http://127.0.0.1:8003/despachos/entregar/${params.id}`, {
       method: "POST"
     });
     const data = await res.json();
@@ -11,3 +11,4 @@ export async function POST(request: Request, { params }: { params: { id: string 
     return NextResponse.json({ error: "Error conectando al MS de Despacho" }, { status: 500 });
   }
 }
+

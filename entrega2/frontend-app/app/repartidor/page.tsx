@@ -15,11 +15,12 @@ export default function RepartidorPage() {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
 
   const fetchPedidos = () => {
-    fetch("/api/pedidos")
+    fetch(`/api/pedidos?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => setPedidos(Array.isArray(data) ? data : []))
       .catch(console.error);
   };
+
 
   useEffect(() => {
     fetchPedidos();

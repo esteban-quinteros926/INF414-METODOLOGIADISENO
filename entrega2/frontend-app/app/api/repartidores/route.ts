@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
-    const res = await fetch("http://localhost:8002/repartidores", { cache: "no-store" });
+    const res = await fetch("http://127.0.0.1:8002/repartidores", { cache: "no-store" });
     const data = await res.json();
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+      }
+    });
   } catch (error) {
     return NextResponse.json({ error: "Error conectando al MS de Repartidores" }, { status: 500 });
   }
@@ -13,7 +21,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const res = await fetch("http://localhost:8002/repartidores", {
+    const res = await fetch("http://127.0.0.1:8002/repartidores", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -24,3 +32,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Error conectando al MS de Repartidores" }, { status: 500 });
   }
 }
+

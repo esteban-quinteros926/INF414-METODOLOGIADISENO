@@ -13,6 +13,9 @@ start "MS Despacho (8003)" cmd /k "cd backend-app\ms_despacho && py -m uvicorn m
 echo Iniciando MS Incidencias (8004)...
 start "MS Incidencias (8004)" cmd /k "cd backend-app\ms_incidencias && py -m uvicorn main:app --host 0.0.0.0 --port 8004 --reload"
 
+echo Iniciando MS Broker Event Bus (8005)...
+start "MS Broker (8005)" cmd /k "cd backend-app\ms_broker && py -m uvicorn main:app --host 0.0.0.0 --port 8005 --reload"
+
 echo Todos los microservicios han sido iniciados correctamente.
 echo Puedes cerrar las nuevas ventanas que se abrieron o presionar CTRL+C en ellas para detener un microservicio individualmente.
 pause

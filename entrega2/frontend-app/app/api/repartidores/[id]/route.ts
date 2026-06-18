@@ -5,7 +5,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const res = await fetch(`http://localhost:8002/repartidores/${params.id}`, {
+    const res = await fetch(`http://127.0.0.1:8002/repartidores/${params.id}`, {
       method: "DELETE",
     });
     const data = await res.json();
@@ -14,3 +14,4 @@ export async function DELETE(
     return NextResponse.json({ error: "Error conectando al MS de Repartidores" }, { status: 500 });
   }
 }
+

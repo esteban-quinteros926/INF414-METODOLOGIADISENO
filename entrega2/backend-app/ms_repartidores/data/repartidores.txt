@@ -1,1 +1,4 @@
-{"id_rep": "R3", "nombre": "Renato Herrera", "capacidad": 20.0, "carga_actual": 0.0, "disponible": true, "ubicacion": "Base Central"}
+{"id_rep": "R1", "nombre": "a", "capacidad": 5.0, "carga_actual": 0.0, "disponible": true, "ubicacion": "Base Central"}
+{"id_rep": "R2", "nombre": "b", "capacidad": 10.0, "carga_actual": 0.0, "disponible": true, "ubicacion": "Base Central"}
+{"id_rep": "R3", "nombre": "c", "capacidad": 5.0, "carga_actual": 0.0, "disponible": true, "ubicacion": "Base Central"}
+{"id_rep": "R4", "nombre": "d", "capacidad": 20.0, "carga_actual": 0.0, "disponible": true, "ubicacion": "Base Central"}

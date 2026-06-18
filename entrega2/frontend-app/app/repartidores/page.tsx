@@ -20,7 +20,7 @@ export default function RepartidoresPage() {
   });
 
   const fetchRepartidores = () => {
-    fetch("/api/repartidores")
+    fetch(`/api/repartidores?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => setRepartidores(Array.isArray(data) ? data : []))
       .catch(console.error);
@@ -28,7 +28,10 @@ export default function RepartidoresPage() {
 
   useEffect(() => {
     fetchRepartidores();
+    const interval = setInterval(fetchRepartidores, 2000);
+    return () => clearInterval(interval);
   }, []);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
